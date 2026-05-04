@@ -1,19 +1,14 @@
 import React, { useContext } from 'react';
 import { ShopContext } from '../Context/ShopContext';
-import products from '../Data/Products';
+// ❌ REMOVE: import products from '../Data/Products';
 import './CSS/Cart.css';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
-  const {
-    cartItems,
-    addToCart,
-    removeFromCart,
-    getTotalPrice,
-  } = useContext(ShopContext);
-
+  const { cartItems, addToCart, removeFromCart, getTotalPrice, products } = useContext(ShopContext);
   const totalAmount = getTotalPrice();
 
+  // JSX is identical — products now comes from context instead of an import
   return (
     <div className="cart-page">
       <h1>Your Cart</h1>
@@ -44,7 +39,7 @@ const Cart = () => {
           })}
           <div className="cart-summary">
             <h2>Total: ₹{totalAmount}</h2>
-            <Link to="/checkout">
+            <Link to="/payment">
               <button className="checkout-btn">Proceed to Checkout</button>
             </Link>
           </div>

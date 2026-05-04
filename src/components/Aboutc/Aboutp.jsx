@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Aboutp.css';
 import { motion } from 'framer-motion';
-// import toyWorkshop from '../Assets/images/toyWorkshop.jpg';
-// import artisanHands from '../Assets/images/artisanHands.jpg';
-// import spinningTop from '../Assets/images/spinningTop.jpg';
+import channapatna_workshop from '../Assets/images/channapatna_workshop.avif';
+import artisanworking from '../Assets/images/artisanworking.jpeg';
+import spinningtop from '../Assets/images/spinningtop.webp';
 
 const About = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    
+
     <motion.div className="about-page"
       initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        viewport={{ once: true }}>
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}>
       <section className="about-hero">
         <h1>The Timeless Charm of Channapatna Toys</h1>
         <p>From Craft to Childhood Memories</p>
@@ -31,11 +34,11 @@ const About = () => {
               with patience, skill, and love.
             </p>
           </div>
-          <img src="https://images.unsplash.com/photo-1581093588401-6c25caa0c041?auto=format&fit=crop&w=800&q=80" alt="Channapatna Workshop" />
+          <img src={channapatna_workshop} alt="Channapatna Workshop" />
         </div>
 
         <div className="about-content reverse">
-          <img src="https://images.unsplash.com/photo-1585249141959-9989d26e0070?auto=format&fit=crop&w=800&q=80" alt="Artisan working on toy" />
+          <img src={artisanworking} alt="Artisan working on toy" />
           <div className="text">
             <h2>The Hands That Build Joy</h2>
             <p className='about-info'>
@@ -65,7 +68,7 @@ const About = () => {
               and a handcrafted doll could become your best friend.
             </p>
           </div>
-          <img src="https://images.unsplash.com/photo-1616594039962-62e6eddfcc7f?auto=format&fit=crop&w=800&q=80" alt="Spinning Top" />
+          <img src={spinningtop} alt="Spinning Top" />
         </div>
 
         <div className="about-conclusion">

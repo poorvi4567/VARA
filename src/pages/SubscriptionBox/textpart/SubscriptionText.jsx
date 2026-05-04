@@ -7,9 +7,8 @@ const SubscriptionText = () => {
         <motion.div
         className="intro"
         initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
-        viewport={{ once: true }}
       >
         <h2> Our Monthly Subscription Experience</h2>
         <p>

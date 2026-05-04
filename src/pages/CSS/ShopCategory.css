@@ -53,3 +53,41 @@
   .add-to-cart-button:hover {
     background-color: rgb(110,26,26);
   }
+
+  .cart-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    border: 2px solid brown;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: auto;
+  }
+
+  .counter-btn {
+    background-color: brown;
+    color: white;
+    border: none;
+    width: 34px;
+    height: 34px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .counter-btn:hover {
+    background-color: rgb(110, 26, 26);
+  }
+
+  .counter-value {
+    min-width: 36px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+    padding: 0 4px;
+  }
