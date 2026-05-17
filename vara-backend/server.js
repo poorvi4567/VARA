@@ -13,7 +13,9 @@ connectDB();
 const app = express();
 
 // --- Middleware ---
-app.use(cors());// Only allow your React app
+app.use(cors({
+    origin: process.env.FRONTEND_URL || 'http://localhost:3000'
+}));// Only allow your React app
 app.use(express.json()); // Parse incoming JSON request bodies
 
 // --- Routes (we'll add these in Phase 2 & 3) ---
