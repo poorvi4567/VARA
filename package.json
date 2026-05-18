@@ -1,7 +1,7 @@
 {
   "name": "channapatna",
   "version": "0.1.0",
-  "homepage": "https://Ashwin18522.github.io/VARA",
+  "homepage": "/",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
