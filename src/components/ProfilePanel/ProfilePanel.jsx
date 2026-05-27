@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useAuth } from '../../Context/AuthContext';
 import './ProfilePanel.css';
-
+import API_URL from '../../config/api';
 const ProfilePanel = ({ isOpen, onClose }) => {
     const { user, token, setUser } = useAuth();
     const [activeTab, setActiveTab] = useState('profile');
@@ -40,7 +40,7 @@ const ProfilePanel = ({ isOpen, onClose }) => {
 
     const fetchProfile = async () => {
         try {
-            const res = await fetch('http://localhost:8000/api/users/profile', {
+            const res = await fetch(`${API_URL}/api/users/profile`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             const data = await res.json();
@@ -61,7 +61,7 @@ const ProfilePanel = ({ isOpen, onClose }) => {
     const fetchOrders = async () => {
         setOrdersLoading(true);
         try {
-            const res = await fetch('http://localhost:8000/api/orders/my', {
+            const res = await fetch(`${API_URL}/api/orders/my`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             const data = await res.json();
@@ -81,7 +81,7 @@ const ProfilePanel = ({ isOpen, onClose }) => {
         setSaving(true);
         setSaveMsg('');
         try {
-            const res = await fetch('http://localhost:8000/api/users/profile', {
+            const res = await fetch(`${API_URL}/api/users/profile`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

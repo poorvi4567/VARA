@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 // ❌ REMOVE: import products from '../Data/Products';
 import { ShopContext } from '../Context/ShopContext';
 import './CSS/ProductDetail.css';
-
+import API_URL from '../config/api';
 const ProductDetail = () => {
   const { id } = useParams();
   const { addToCart } = useContext(ShopContext);
@@ -12,7 +12,7 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/api/products/${id}`)
+    fetch(`${API_URL}/api/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);

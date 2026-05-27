@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 // ❌ REMOVE: import products from '../Data/Products';
-
+import API_URL from '../config/api';
 export const ShopContext = createContext();
 
 // Cart is now empty by default — products load dynamically
@@ -16,7 +16,7 @@ const ShopContextProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/products')
+    fetch(`${API_URL}/api/products`)
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch products');
         return res.json();

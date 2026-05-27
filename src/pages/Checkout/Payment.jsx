@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ShopContext } from '../../Context/ShopContext';
 import { useAuth } from '../../Context/AuthContext';
 import './Payment.css';
+import API_URL from '../../config/api';
 
 const Payment = () => {
   const { cartItems, products, getTotalPrice, clearCart } = useContext(ShopContext);
@@ -24,7 +25,7 @@ const Payment = () => {
 
   useEffect(() => {
     if (token) {
-      fetch('http://localhost:8000/api/users/profile', {
+      fetch(`${API_URL}/api/users/profile`, {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((res) => res.json())
@@ -69,7 +70,7 @@ const Payment = () => {
 
     try {
       // Step 1 — Save order to MongoDB as "pending"
-      const orderRes = await fetch('http://localhost:8000/api/orders', {
+      const orderRes = await fetch(`${API_URL}/api/orders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -84,7 +85,7 @@ const Payment = () => {
       if (!orderRes.ok) throw new Error(order.message);
 
       // Step 2 — Create Razorpay order
-      const razorpayRes = await fetch('http://localhost:8000/api/orders/create-razorpay-order', {
+      const razorpayRes = await fetch(`${API_URL}/api/orders/create-razorpay-order`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -113,7 +114,7 @@ const Payment = () => {
         // Step 4 — On payment success, verify with backend
         handler: async (response) => {
           try {
-            const verifyRes = await fetch('http://localhost:8000/api/orders/verify-payment', {
+            const verifyRes = await fetch(`${API_URL}/api/orders/verify-payment`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
